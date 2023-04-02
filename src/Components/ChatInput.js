@@ -1,18 +1,22 @@
 import "./ChatInput.css"
 import { useState } from 'react';
 
-function ChatInput(){
+function ChatInput({addNewHumanChatLogs, humanChatLogs}){
     const send = ">"
-
+    
     const [inputValue, setInputValue] = useState('');
   
     const handleInputChange = (event) => {
       setInputValue(event.target.value);
     }
-
-    const displayInput = () =>{
-        console.log(inputValue)
-    }
+    
+        console.log(humanChatLogs.length)
+    
+        const displayInput = () =>{
+            if(humanChatLogs.length<10)
+           addNewHumanChatLogs(inputValue);
+        }
+    
     return(
         <div className="containerInput">
             <input className="chatInput" type="text" value={inputValue} onChange={handleInputChange}></input>

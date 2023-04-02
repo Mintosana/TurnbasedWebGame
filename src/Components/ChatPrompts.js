@@ -1,9 +1,9 @@
 import './ChatPrompt.css'
 import ChatInput from './ChatInput'
 
-function ChatPrompts(){
+function ChatPrompts({ humanChatLogs }){
     let AIResponse = "Beep Boop"
-    let PlayerResponse = "Human";
+
 
     return(
         <div className='chatPrompts'>
@@ -12,7 +12,7 @@ function ChatPrompts(){
           </div>
           <div className='vs'>VS</div>
           <div className='chatBox'>
-            {PlayerResponse}
+          {humanChatLogs.at(-1)}
           </div>
         </div>
     )
