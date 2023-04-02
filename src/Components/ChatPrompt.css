@@ -1,0 +1,17 @@
+.chatPrompts{
+    display: flex;
+    flex-direction: row;
+    gap: 6vw;
+}
+
+.chatBox{
+    width: 20vw;
+    height: 10vh;
+    background-color: red;
+    font-size: 6vh;
+    border-radius: 1rem;
+}
+
+.vs{
+    font-size: 4vh;
+}

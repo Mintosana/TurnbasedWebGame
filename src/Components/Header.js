@@ -1,8 +1,9 @@
 import './Header.css';
 
 function Header(){
+    let word = "PlaceHolder";
     return(
-        <h1 className='header-title'>TITLE</h1>
+        <h1 className='header-title'>The word is {word}</h1>
     )
 }
 

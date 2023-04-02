@@ -1,0 +1,29 @@
+.logsContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 40vh;
+    align-items: center;
+    justify-content: center;
+    gap: 20vw;
+    margin-top: 6vh;
+}
+
+.historyChat{
+    width: 40vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.historyPlayer{
+    background-color: yellow;
+    width: 20vw;
+    height: 40vh;
+}
+
+.historyAI{
+    background-color: orange;
+    width: 20vw;
+    height: 40vh;
+}

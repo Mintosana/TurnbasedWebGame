@@ -1,0 +1,19 @@
+.containerInput{
+    margin-top: 4vh;
+    display: flex;
+    align-items: center;
+    margin-left: 4vw;
+    gap:2vh;
+}
+
+.chatInput{
+    height: 8vh;
+    width: 20vw;
+    font-size: 3rem;
+}
+
+.sendInput{
+    height: 8vh;
+    width: 4vw;
+    font-size: 4rem;
+}

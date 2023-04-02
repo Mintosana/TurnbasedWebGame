@@ -1,10 +1,13 @@
 import './App.css';
+import { useState } from 'react';
 import Header from './Components/Header';
 import ChatPrompts from './Components/ChatPrompts';
 import ChatLogs from './Components/ChatLogs';
 import ChatInput from './Components/ChatInput';
 
 function App() {
+
+
   return (
     <div className="App">
       <div className="container">
