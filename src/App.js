@@ -15,13 +15,13 @@ function addNewHumanChatLogs(input) {
     <div className="App">
       <div className="container">
 
-        <Header setLetter={setLetter}></Header>
+        <Header setLetter={setLetter} letter={letter}></Header>
         
         <ChatPrompts humanChatLogs={humanChatLogs} ></ChatPrompts>
 
         <ChatLogs humanChatLogs={humanChatLogs}></ChatLogs>
 
-        <ChatInput addNewHumanChatLogs={addNewHumanChatLogs} humanChatLogs={humanChatLogs}></ChatInput>
+        <ChatInput addNewHumanChatLogs={addNewHumanChatLogs} humanChatLogs={humanChatLogs} letter={letter}></ChatInput>
 
       </div>
     </div>

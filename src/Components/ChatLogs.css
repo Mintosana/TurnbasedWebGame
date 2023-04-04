@@ -14,16 +14,17 @@
     height: 40vh;
     display: flex;
     flex-direction: row;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
 
 .historyPlayer{
-    background-color: yellow;
+    background-color: #3DD1E7;
     width: 20vw;
     height: 40vh;
 }
 
 .historyAI{
-    background-color: orange;
+    background-color: #018094;
     width: 20vw;
     height: 40vh;
 }
