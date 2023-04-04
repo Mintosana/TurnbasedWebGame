@@ -7,6 +7,7 @@ import ChatInput from './Components/ChatInput';
 
 function App() {
 const [humanChatLogs, setHumanChatLogs] = useState([""]);
+const [letter, setLetter] = useState("");
 function addNewHumanChatLogs(input) {
   setHumanChatLogs([...humanChatLogs, input])
 }
@@ -14,9 +15,9 @@ function addNewHumanChatLogs(input) {
     <div className="App">
       <div className="container">
 
-        <Header></Header>  
+        <Header setLetter={setLetter}></Header>
         
-        <ChatPrompts humanChatLogs={humanChatLogs}></ChatPrompts>
+        <ChatPrompts humanChatLogs={humanChatLogs} ></ChatPrompts>
 
         <ChatLogs humanChatLogs={humanChatLogs}></ChatLogs>
 

@@ -1,9 +1,6 @@
 import "./ChatLogs.css"
 
 function ChatLogs({ humanChatLogs }) {
-    let HistoryAI = ["Default"];
-    let PlayerAI = ["Default"];
-
     return (
         <div className="logsContainer">
             <img src="" alt="Logo" />
