@@ -8,8 +8,14 @@ import ChatInput from './Components/ChatInput';
 function App() {
 const [humanChatLogs, setHumanChatLogs] = useState([""]);
 const [letter, setLetter] = useState("");
+
+
 function addNewHumanChatLogs(input) {
   setHumanChatLogs([...humanChatLogs, input])
+}
+const [aiChatLogs, setAiChatLogs] = useState([""]);
+function addNewAiChatLogs(input) {
+  setAiChatLogs([...aiChatLogs, input])
 }
   return (
     <div className="App">

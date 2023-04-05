@@ -1,15 +1,23 @@
 import './ChatPrompt.css'
 import './Header.js'
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
+import { useGenerate } from '../OpenAi';
 
 function ChatPrompts({ humanChatLogs, letter }){
-    let AIResponse = "Beep Boop"
-
+    const {
+      data,
+      error,
+      generateText
+    } = useGenerate();
+    useEffect(()=>{
+      generateText();
+    },
+    []
+    )
     return(
         <div className='chatPrompts'>
           <div className='chatBox'>
-            {AIResponse}
+            {data}
           </div>
           <div className='vs'>VS</div>
           <div className='chatBox'>
