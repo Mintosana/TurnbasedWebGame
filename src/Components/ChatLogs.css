@@ -5,7 +5,7 @@
     height: 40vh;
     align-items: center;
     justify-content: center;
-    gap: 20vw;
+    gap: 12vw;
     margin-top: 6vh;
 }
 
@@ -28,3 +28,9 @@
     width: 20vw;
     height: 40vh;
 }
+
+.logo{
+    width: 10vw;
+    height: 20vh;
+}
+

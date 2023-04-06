@@ -7,13 +7,25 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)];
 export const variable = randomCharacter;
 
-const body = {
+const bodyGenerateText = {
   "model": "text-davinci-003",
   "prompt": `Give a word with the letter ${variable}`,
   "temperature" : 1,
   "max_tokens" : 10,
   "n" : 1,
 }
+
+const bodyGenerateImage = {
+  
+}
+
+// const bodyVerifyText = {
+//   "model": "text-davinci-003",
+//   "prompt": `Can you tell me if the word ${} is valid ? Yes or no answers only`,
+//   "temperature" : 1,
+//   "max_tokens" : 10,
+//   "n" : 1,
+// }
 
 const config ={
   headers:{
@@ -30,7 +42,7 @@ export const useGenerate = () => {
     try {
       const response = await axios.post(
         "https://api.openai.com/v1/completions",
-        JSON.stringify(body),
+        JSON.stringify(bodyGenerateText),
         config
       );
       const generatedText = response.data.choices[0].text;
