@@ -1,7 +1,8 @@
 import "./ChatInput.css"
 import { useState } from 'react';
+import ChatPrompts from "./ChatPrompts";
 
-function ChatInput({addNewHumanChatLogs, humanChatLogs, letter}){
+function ChatInput({addNewHumanChatLogs, humanChatLogs, letter, onClick}){
     const send = "Send"
     const next = "NextRound"
     
@@ -18,11 +19,17 @@ function ChatInput({addNewHumanChatLogs, humanChatLogs, letter}){
           addNewHumanChatLogs(inputValue);
         }}
       };
+
+      function sendButton()
+      {
+        displayInput();
+        onClick();
+      }
       
     return(
         <div className="containerInput">
             <input className="chatInput" type="text" value={inputValue} onChange={handleInputChange}></input>
-            <button className="sendInput" onClick={displayInput}>{send}</button>
+            <button className="sendInput" onClick={sendButton}>{send}</button>
             <button className="sendInput">{next}</button>
 
         </div>

@@ -4,11 +4,17 @@ import Header from './Components/Header';
 import ChatPrompts from './Components/ChatPrompts';
 import ChatLogs from './Components/ChatLogs';
 import ChatInput from './Components/ChatInput';
+import { useGenerate } from './OpenAi';
 
 function App() {
 const [humanChatLogs, setHumanChatLogs] = useState([""]);
 const [letter, setLetter] = useState("");
 
+const {
+  data,
+  error,
+  generateText
+} = useGenerate();
 
 function addNewHumanChatLogs(input) {
   setHumanChatLogs([...humanChatLogs, input])
@@ -23,11 +29,11 @@ function addNewAiChatLogs(input) {
 
         <Header setLetter={setLetter} letter={letter}></Header>
         
-        <ChatPrompts humanChatLogs={humanChatLogs} ></ChatPrompts>
+        <ChatPrompts humanChatLogs={humanChatLogs} generatedText={data} ></ChatPrompts>
 
         <ChatLogs humanChatLogs={humanChatLogs}></ChatLogs>
 
-        <ChatInput addNewHumanChatLogs={addNewHumanChatLogs} humanChatLogs={humanChatLogs} letter={letter}></ChatInput>
+        <ChatInput addNewHumanChatLogs={addNewHumanChatLogs} humanChatLogs={humanChatLogs} letter={letter} onClick={generateText} ></ChatInput>
 
       </div>
     </div>
