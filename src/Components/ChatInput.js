@@ -1,5 +1,8 @@
 import "./ChatInput.css"
 import { useState } from "react"
+import { comparePrompts } from "../CompareStrings"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
     const send = "Send"
@@ -12,16 +15,20 @@ function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
     }
 
     const displayInput = () => {
-        if (humanChatLogs.length < 5) {
-            if (inputValue[0] === letter) {
+        if (humanChatLogs.length < 5 && inputValue[0] === letter) {
                 addNewHumanChatLogs(inputValue)
-            }
+        }
+        else {
+            toast("The word is not right");
         }
     }
 
-    function sendButton() {
+    async function sendButton() {
         displayInput()
-        onClick()
+        let generatedText = await onClick()
+        if (generatedText !== null) {
+            comparePrompts(inputValue, generatedText)
+        }
     }
 
     return (
@@ -35,6 +42,8 @@ function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
             <button className="sendInput" onClick={sendButton}>
                 {send}
             </button>
+            <ToastContainer />
+
             <button className="sendInput">{next}</button>
         </div>
     )
