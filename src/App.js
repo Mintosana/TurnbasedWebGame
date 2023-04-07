@@ -8,20 +8,24 @@ import { useGenerate } from './OpenAi';
 
 function App() {
 const [humanChatLogs, setHumanChatLogs] = useState([""]);
+const [aiChatLogs, setAiChatLogs] = useState([""]);
 const [letter, setLetter] = useState("");
+
 
 const {
   data,
-  error,
   generateText
 } = useGenerate();
 
+
+
+function addNewAiChatLogs(generatedText) {
+  if (generatedText && generatedText.trim() !== "") {
+    setAiChatLogs([...aiChatLogs, generatedText]);
+  }
+}
 function addNewHumanChatLogs(input) {
   setHumanChatLogs([...humanChatLogs, input])
-}
-const [aiChatLogs, setAiChatLogs] = useState([""]);
-function addNewAiChatLogs(input) {
-  setAiChatLogs([...aiChatLogs, input])
 }
   return (
     <div className="App">
@@ -31,9 +35,9 @@ function addNewAiChatLogs(input) {
         
         <ChatPrompts humanChatLogs={humanChatLogs} generatedText={data} ></ChatPrompts>
 
-        <ChatLogs humanChatLogs={humanChatLogs}></ChatLogs>
+        <ChatLogs humanChatLogs={humanChatLogs} generatedText={data} aiChatLogs={aiChatLogs}></ChatLogs>
 
-        <ChatInput addNewHumanChatLogs={addNewHumanChatLogs} humanChatLogs={humanChatLogs} letter={letter} onClick={generateText} ></ChatInput>
+        <ChatInput addNewHumanChatLogs={addNewHumanChatLogs} humanChatLogs={humanChatLogs} letter={letter} onClick={generateText} addNewAiChatLogs={addNewAiChatLogs} generatedText={data} aiChatLogs={aiChatLogs}></ChatInput>
 
       </div>
     </div>
