@@ -4,7 +4,7 @@ import { comparePrompts } from "../CompareStrings"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
-function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
+function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick, addNewAiChatLogs, generatedText, aiChatLogs  }) {
     const send = "Send"
     const next = "NextRound"
 
@@ -14,12 +14,15 @@ function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
         setInputValue(event.target.value)
     }
 
-    const displayInput = () => {
-        if (humanChatLogs.length < 5 && inputValue[0] === letter) {
-                addNewHumanChatLogs(inputValue)
+
+    const displayInput = () => {    
+        const upperCasedString = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+        console.log(upperCasedString)
+        if (humanChatLogs.length < 6 && upperCasedString[0] === letter) {
+                addNewHumanChatLogs(upperCasedString)
         }
         else {
-            toast("The word is not right");
+            toast("The word is not right, your word score will be 0, so...");
         }
     }
 
