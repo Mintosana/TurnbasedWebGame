@@ -1,7 +1,7 @@
 import "./ChatInput.css"
 import { useState } from "react"
 
-function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick, addNewAiChatLogs, generatedText, aiChatLogs }) {
+function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
     const send = "Send"
     const next = "NextRound"
 
@@ -14,13 +14,13 @@ function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick, addNew
 
     const displayInput = () => {
         if (humanChatLogs.length < 6) {
-            if (inputValue[0] === letter) {
-                addNewHumanChatLogs(inputValue)
-                addNewAiChatLogs(generatedText)
+            const upperCasedString = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+            console.log(upperCasedString);
+
+            if (upperCasedString[0] === letter) {
+
+                addNewHumanChatLogs(upperCasedString)
             }
-        }
-        if (aiChatLogs.length < 10) {
-                addNewAiChatLogs(generatedText)
         }
     }
 
