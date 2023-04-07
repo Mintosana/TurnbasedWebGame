@@ -6,6 +6,9 @@ import ChatLogs from "./Components/ChatLogs"
 import ChatInput from "./Components/ChatInput"
 import { useGenerate } from "./OpenAi"
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
     const [humanChatLogs, setHumanChatLogs] = useState([""])
     const [letter, setLetter] = useState("")
