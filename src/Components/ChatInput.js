@@ -1,5 +1,6 @@
 import "./ChatInput.css"
 import { useState } from "react"
+import { comparePrompts } from "../CompareStrings"
 
 function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
     const send = "Send"
@@ -19,9 +20,12 @@ function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
         }
     }
 
-    function sendButton() {
+    async function sendButton() {
         displayInput()
-        onClick()
+        let generatedText = await onClick()
+        if (generatedText !== null) {
+            comparePrompts(inputValue, generatedText)
+        }
     }
 
     return (

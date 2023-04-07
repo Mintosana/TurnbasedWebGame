@@ -46,9 +46,11 @@ export const useGenerate = () => {
             )
             const generatedText = response.data.choices[0].text
             setData(generatedText)
+            return generatedText
         } catch (error) {
             setError(error.message)
         }
+        return null
     }
 
     return { data, error, generateText }

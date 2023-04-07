@@ -1,9 +1,19 @@
 export function comparePrompts(humanChatLogs, generatedText) {
     if (humanChatLogs && generatedText) {
-        let humanInputLength = humanChatLogs.at(-1).length
+        let humanInputLength = humanChatLogs.length
         let generatedTextLength = generatedText.length - 2
-        console.log(humanChatLogs.at(-1) + " " + humanInputLength)
-        console.log(generatedText + " " + generatedTextLength)
+        console.log(
+            "String length of human input that is the word: " +
+                humanChatLogs +
+                " " +
+                humanInputLength
+        )
+        console.log(
+            "String length of AI input that is the word: " +
+                generatedText +
+                " " +
+                generatedTextLength
+        )
         if (humanInputLength < generatedTextLength) {
             console.log("You Lost... The Skynet will take over the world")
         } else if (humanInputLength > generatedTextLength) {
