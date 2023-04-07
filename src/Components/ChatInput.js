@@ -16,13 +16,15 @@ function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick, addNew
 
 
     const displayInput = () => {    
-        const upperCasedString = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+        let upperCasedString = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
         console.log(upperCasedString)
-        if (humanChatLogs.length < 6 && upperCasedString[0] === letter) {
+        if (humanChatLogs.length < 6 && upperCasedString[0] === letter && upperCasedString.match('^[a-zA-Z]+$')) {
                 addNewHumanChatLogs(upperCasedString)
         }
         else {
+            upperCasedString = "0️⃣";
             toast("The word is not right, your word score will be 0, so...");
+            addNewHumanChatLogs(upperCasedString)
         }
     }
 
