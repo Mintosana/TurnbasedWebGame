@@ -1,5 +1,8 @@
 import "./ChatInput.css"
 import { useState } from "react"
+import { generateLetter } from "../OpenAi"
+
+const updateLetter ="";
 
 function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
     const send = "Send"
@@ -24,6 +27,11 @@ function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
         onClick()
     }
 
+    function clearGame(){
+        setInputValue("");
+        generateLetter();
+    }
+
     return (
         <div className="containerInput">
             <input
@@ -35,7 +43,7 @@ function ChatInput({ addNewHumanChatLogs, humanChatLogs, letter, onClick }) {
             <button className="sendInput" onClick={sendButton}>
                 {send}
             </button>
-            <button className="sendInput">{next}</button>
+            <button className="sendInput" onClick={clearGame}>{next}</button>
         </div>
     )
 }

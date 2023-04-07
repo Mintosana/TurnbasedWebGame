@@ -3,9 +3,13 @@ import { useState } from 'react';
 
 const openai = require('openai');
 
-const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)];
-export const variable = randomCharacter;
+export function generateLetter()
+{
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)];
+  return randomCharacter;
+}
+export const variable = generateLetter();
 
 const bodyGenerateText = {
   "model": "text-davinci-003",
