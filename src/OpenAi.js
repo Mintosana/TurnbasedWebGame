@@ -29,7 +29,7 @@ const config = {
     headers: {
         "Content-Type": "application/json",
         Authorization:
-            "Bearer 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",
+            "Bearer --insertk API key here",
     },
 }
 
